@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="gl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Amelia | Bar, Ultramarinos & Alquiler de Pisos en Chantada</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="imagenes/ribeira.png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'piedra': '#4a4a4a',
+                        'pizarra': '#2d3436',
+                        'bosque': '#1e3a2f',
+                        'mencia': '#722f37',
+                        'mencia-dark': '#5a252c',
+                        'tierra': '#8b7355',
+                        'crema': '#f5f0e8',
+                        'roble': '#6b4423',
+                    },
+                    fontFamily: {
+                        'serif': ['Merriweather', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Ocultar scrollbar pero mantener funcionalidad de scroll */
+        html {
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        html::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        .texture-stone {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-. 895 2-2s-.895-2-2-2-2 .895-2 2 . 895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #722f37;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .lang-btn {
+            color: rgba(245, 240, 232, 0.7);
+            background-color: transparent;
+        }
+
+        .lang-btn:hover {
+            color: #f5f0e8;
+            background-color: rgba(114, 47, 55, 0.5);
+        }
+
+        .lang-btn.active {
+            color: #f5f0e8;
+            background-color: #722f37;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-piedra bg-crema">
+
+    <!-- Header - Ahora con fondo sólido desde el inicio -->
+    <header class="fixed w-full z-50 bg-pizarra shadow-lg" id="header">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-mencia rounded-full flex items-center justify-center">
+                        <i class="fas fa-wine-glass-alt text-crema text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-serif font-bold text-xl text-crema">Casa Amelia</h1>
+                        <p class="text-xs text-crema/70 tracking-widest uppercase">Bar & Ultramarinos</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="nav-link text-crema hover:text-white transition-colors"
+                        data-i18n="nav.inicio">Inicio</a>
+                    <a href="#nosotros" class="nav-link text-crema hover:text-white transition-colors"
+                        data-i18n="nav.nosotros">Sobre nós</a>
+                    <a href="#servicios" class="nav-link text-crema hover:text-white transition-colors"
+                        data-i18n="nav.servicios">Servizos</a>
+                    <a href="#pisos" class="nav-link text-crema hover:text-white transition-colors"
+                        data-i18n="nav.pisos">Pisos</a>
+                    <a href="#productos" class="nav-link text-crema hover:text-white transition-colors"
+                        data-i18n="nav.productos">Produtos</a>
+
+                    <!-- Language Selector -->
+                    <div class="flex items-center space-x-1 bg-pizarra/50 rounded-full p-1">
+                        <button onclick="setLanguage('gl')"
+                            class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all"
+                            data-lang="gl">GL</button>
+                        <button onclick="setLanguage('es')"
+                            class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all"
+                            data-lang="es">ES</button>
+                        <button onclick="setLanguage('en')"
+                            class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all"
+                            data-lang="en">EN</button>
+                    </div>
+
+                    <a href="#contacto"
+                        class="bg-mencia hover:bg-mencia-dark text-crema px-6 py-2 rounded-full transition-all duration-300 hover:shadow-lg"
+                        data-i18n="nav.contactar">
+                        Contactar
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-crema text-2xl" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="hidden md:hidden mt-4 pb-4 border-t border-crema/20" id="mobileMenu">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="#inicio" class="text-crema hover:text-white transition-colors"
+                        data-i18n="nav.inicio">Inicio</a>
+                    <a href="#nosotros" class="text-crema hover:text-white transition-colors"
+                        data-i18n="nav.nosotros">Sobre nós</a>
+                    <a href="#servicios" class="text-crema hover:text-white transition-colors"
+                        data-i18n="nav.servicios">Servizos</a>
+                    <a href="#pisos" class="text-crema hover:text-white transition-colors"
+                        data-i18n="nav.pisos">Pisos</a>
+                    <a href="#productos" class="text-crema hover:text-white transition-colors"
+                        data-i18n="nav.productos">Produtos</a>
+
+                    <!-- Mobile Language Selector -->
+                    <div class="flex items-center justify-center space-x-2 py-2">
+                        <button onclick="setLanguage('gl')"
+                            class="lang-btn px-4 py-2 rounded-full text-sm font-medium transition-all"
+                            data-lang="gl">GL</button>
+                        <button onclick="setLanguage('es')"
+                            class="lang-btn px-4 py-2 rounded-full text-sm font-medium transition-all"
+                            data-lang="es">ES</button>
+                        <button onclick="setLanguage('en')"
+                            class="lang-btn px-4 py-2 rounded-full text-sm font-medium transition-all"
+                            data-lang="en">EN</button>
+                    </div>
+
+                    <a href="#contacto" class="bg-mencia text-crema px-6 py-2 rounded-full text-center"
+                        data-i18n="nav.contactar">Contactar</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section - Imagen de fondo con fallback de color -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center text-center bg-bosque">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="imagenes/ribeira.png" alt="Viñedos en terrazas da Ribeira Sacra"
+                class="w-full h-full object-cover">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-pizarra/80 via-pizarra/70 to-pizarra/90"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="container mx-auto px-6 relative z-10 pt-32">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-mencia font-semibold tracking-widest uppercase mb-4 text-sm md:text-base"
+                    style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                    <i class="fas fa-map-marker-alt mr-2"></i><span data-i18n="hero.location">Chantada, Ribeira
+                        Sacra</span>
+                </p>
+                <h2 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-crema mb-6 leading-tight"
+                    data-i18n="hero.title" style="text-shadow: 0 4px 8px rgba(0,0,0,0.6);">
+                    Sabor a tradición no <span class="text-mencia">corazón</span> de Galicia
+                </h2>
+                <p class="text-crema/90 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light" data-i18n="hero.subtitle"
+                    style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                    Onde o aroma do café recén feito se mestura co do pan de aldea.
+                    Bar e ultramarinos de toda a vida, coa alma da Ribeira Sacra.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contacto"
+                        class="bg-mencia hover:bg-mencia-dark text-crema px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105 inline-flex items-center justify-center">
+                        <i class="fas fa-door-open mr-2"></i><span data-i18n="hero.cta1">Ven visitarnos</span>
+                    </a>
+                    <a href="#servicios"
+                        class="border-2 border-crema text-crema hover:bg-crema hover:text-pizarra px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 inline-flex items-center justify-center">
+                        <i class="fas fa-info-circle mr-2"></i><span data-i18n="hero.cta2">Descubre máis</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+            <a href="#nosotros" class="text-crema/60 hover:text-crema transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros" class="py-20 md:py-32 bg-crema">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                        alt="Interior del bar tradicional"
+                        class="rounded-2xl shadow-2xl w-full h-[400px] md:h-[500px] object-cover">
+                    <div
+                        class="absolute -bottom-6 -right-6 bg-mencia text-crema p-6 rounded-2xl shadow-xl hidden md:block">
+                        <p class="font-serif text-4xl font-bold">+40</p>
+                        <p class="text-sm" data-i18n="about.years">anos de historia</p>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-mencia font-semibold tracking-widest uppercase mb-4" data-i18n="about.label">A Nosa
+                        Historia</p>
+                    <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-pizarra mb-6"
+                        data-i18n="about.title">
+                        Máis que un negocio, un lugar de encontro
+                    </h3>
+                    <div class="space-y-4 text-piedra/80 text-lg leading-relaxed">
+                        <p data-i18n="about.p1">
+                            <i class="fas fa-quote-left text-mencia/30 text-2xl mr-2"></i>
+                            En Casa Amelia levamos décadas sendo o punto de encontro de Chantada.
+                            Aquí tómase o café da mañá, bótase a partida despois de xantar,
+                            e lévase a casa o pan quentiño para a cea.
+                        </p>
+                        <p data-i18n="about.p2">
+                            Somos <strong class="text-bosque">bar e tenda á vez</strong>, como os negocios de antes.
+                            Onde podes tomar un viño Mencía da terra mentres fas a compra,
+                            ou levar unhas conservas artesás despois do vermú do domingo.
+                        </p>
+                        <p data-i18n="about.p3">
+                            Unha tradición familiar que pasa de xeración en xeración,
+                            mantendo sempre a esencia: <strong class="text-bosque">produto local, trato próximo e
+                                calidade de verdade</strong>.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-6 mt-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-bosque/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-leaf text-bosque text-xl"></i>
+                            </div>
+                            <span class="font-medium" data-i18n="about.feat1">Produto Local</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-mencia/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-heart text-mencia text-xl"></i>
+                            </div>
+                            <span class="font-medium" data-i18n="about.feat2">Trato Familiar</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-roble/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-award text-roble text-xl"></i>
+                            </div>
+                            <span class="font-medium" data-i18n="about.feat3">Calidade Artesá</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Dual:  Bar y Tienda -->
+    <section id="servicios" class="py-20 md:py-32 bg-pizarra texture-stone">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-mencia font-semibold tracking-widest uppercase mb-4" data-i18n="services.label">O Mellor
+                    de Dous Mundos</p>
+                <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-crema" data-i18n="services.title">
+                    Bar & Ultramarinos
+                </h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-0 md:gap-1 rounded-3xl overflow-hidden">
+                <!-- El Bar -->
+                <div class="relative group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                        alt="O Bar"
+                        class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-pizarra via-pizarra/60 to-transparent"></div>
+                    <div class="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
+                        <div class="mb-4">
+                            <i class="fas fa-wine-glass text-mencia text-4xl mb-4"></i>
+                        </div>
+                        <h4 class="font-serif text-3xl md:text-4xl font-bold text-crema mb-4"
+                            data-i18n="services.bar.title">O Bar</h4>
+                        <ul class="space-y-3 text-crema/80">
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-mencia"></i>
+                                <span data-i18n="services.bar.item1">Viños D.O. Ribeira Sacra</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-mencia"></i>
+                                <span data-i18n="services.bar.item2">Tapas caseiras da avoa</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-mencia"></i>
+                                <span data-i18n="services.bar.item3">Café de torrado natural</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-mencia"></i>
+                                <span data-i18n="services.bar.item4">Licores galegos artesáns</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-mencia"></i>
+                                <span data-i18n="services.bar.item5">Vermú de grifo os domingos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- La Tienda -->
+                <div class="relative group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                        alt="A Tenda"
+                        class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-bosque via-bosque/60 to-transparent"></div>
+                    <div class="absolute inset-0 flex flex-col justify-end p-8 md:p-12">
+                        <div class="mb-4">
+                            <i class="fas fa-store text-crema/80 text-4xl mb-4"></i>
+                        </div>
+                        <h4 class="font-serif text-3xl md:text-4xl font-bold text-crema mb-4"
+                            data-i18n="services.store.title">A Tenda</h4>
+                        <ul class="space-y-3 text-crema/80">
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-crema/60"></i>
+                                <span data-i18n="services.store.item1">Pan de aldea recén feito</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-crema/60"></i>
+                                <span data-i18n="services.store.item2">Embutidos da zona</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-crema/60"></i>
+                                <span data-i18n="services.store.item3">Queixos galegos artesáns</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-crema/60"></i>
+                                <span data-i18n="services.store.item4">Conservas do mar</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fas fa-check text-crema/60"></i>
+                                <span data-i18n="services.store.item5">Mel e produtos da terra</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alquiler de Pisos - Sección Principal -->
+    <section id="pisos" class="py-20 md:py-32 bg-crema">
+        <div class="container mx-auto px-6">
+            <!-- Encabezado de la sección -->
+            <div class="text-center mb-16">
+                <p class="text-mencia font-semibold tracking-widest uppercase mb-4" data-i18n="apartments.label">
+                    Pisos en Alugueiro</p>
+                <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-pizarra mb-6"
+                    data-i18n="apartments.title">
+                    O Teu Novo Fogar <span class="text-mencia">na Ribeira Sacra</span>
+                </h3>
+                <p class="text-piedra/80 text-lg max-w-3xl mx-auto" data-i18n="apartments.intro">
+                    Pisos recén reformados, listos para entrar a vivir. Dispoñemos de dúas vivendas con todo o confort
+                    moderno, zonas exteriores comúns e unha ubicación inmelorable no corazón de Chantada.
+                </p>
+            </div>
+
+            <!-- Piso 1 -->
+            <div class="mb-20">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-mencia rounded-full flex items-center justify-center">
+                                <span class="text-crema font-bold text-xl">1</span>
+                            </div>
+                            <h4 class="font-serif text-2xl md:text-3xl font-bold text-pizarra"
+                                data-i18n="apartments.piso1.title">
+                                Piso 1
+                            </h4>
+                        </div>
+                        <div class="space-y-4 text-piedra/80 text-lg leading-relaxed">
+                            <p data-i18n="apartments.piso1.p1">
+                                <i class="fas fa-quote-left text-mencia/30 text-xl mr-2"></i>
+                                Acolledor piso de <strong class="text-bosque">1 dormitorio</strong> perfecto para unha
+                                persoa ou parella. Recén reformado con acabados de calidade, combina a calidez do estilo
+                                tradicional galego coas comodidades modernas que precisas no teu día a día.
+                            </p>
+                            <p data-i18n="apartments.piso1.p2">
+                                Amplo salón con moita luz natural, cociña totalmente equipada e baño completo. Ideal
+                                para quen busca <strong class="text-bosque">tranquilidade e calidade de vida</strong>
+                                nun entorno privilexiado.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4 mt-6">
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-bed text-mencia"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.piso1.feat1">1 Dormitorio</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-bath text-mencia"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.piso1.feat2">1 Baño
+                                    completo</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-utensils text-mencia"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.piso1.feat3">Cociña
+                                    equipada</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-wifi text-mencia"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.piso1.feat4">WiFi
+                                    incluído</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Imagen principal Piso 1 -->
+                    <div class="relative">
+                        <img src="imagenes/piso1/salon1.png" alt="Salón do Piso 1"
+                            class="gallery-img rounded-2xl shadow-2xl w-full h-[400px] object-cover cursor-pointer"
+                            data-gallery="piso1">
+                        <div
+                            class="absolute -bottom-4 -right-4 bg-mencia text-crema px-4 py-2 rounded-xl shadow-lg hidden md:block">
+                            <span class="font-semibold" data-i18n="apartments.piso1.badge">Dispoñible</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Galería de imágenes Piso 1 -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/piso1/salon2.png" alt="Salón do Piso 1 - Vista 2"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="piso1">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/piso1/dormitorio.png" alt="Dormitorio do Piso 1"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="piso1">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/piso1/cocina.png" alt="Cociña do Piso 1"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="piso1">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/piso1/baño.png" alt="Baño do Piso 1"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="piso1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Separador decorativo -->
+            <div class="flex items-center justify-center my-16">
+                <div class="w-24 h-1 bg-mencia/30"></div>
+                <i class="fas fa-home text-mencia/50 text-2xl mx-6"></i>
+                <div class="w-24 h-1 bg-mencia/30"></div>
+            </div>
+
+            <!-- Piso 2 -->
+            <div class="mb-20">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                    <!-- Imagen principal Piso 2 (orden invertido) -->
+                    <div class="relative order-2 lg:order-1">
+                        <img src="imagenes/piso2/salon.png" alt="Salón do Piso 2"
+                            class="gallery-img rounded-2xl shadow-2xl w-full h-[400px] object-cover cursor-pointer"
+                            data-gallery="piso2">
+                        <div
+                            class="absolute -bottom-4 -left-4 bg-bosque text-crema px-4 py-2 rounded-xl shadow-lg hidden md:block">
+                            <span class="font-semibold" data-i18n="apartments.piso2.badge">Recén renovado</span>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-bosque rounded-full flex items-center justify-center">
+                                <span class="text-crema font-bold text-xl">2</span>
+                            </div>
+                            <h4 class="font-serif text-2xl md:text-3xl font-bold text-pizarra"
+                                data-i18n="apartments.piso2.title">
+                                Piso 2
+                            </h4>
+                        </div>
+                        <div class="space-y-4 text-piedra/80 text-lg leading-relaxed">
+                            <p data-i18n="apartments.piso2.p1">
+                                <i class="fas fa-quote-left text-bosque/30 text-xl mr-2"></i>
+                                Espazo luminoso e acolledor de <strong class="text-bosque">2 dormitorios</strong>, ideal
+                                para familias ou para quen precise máis espazo. Completamente renovado con materiais de
+                                primeira calidade e un deseño funcional.
+                            </p>
+                            <p data-i18n="apartments.piso2.p2">
+                                Conta con dous baños, salón amplo e cociña equipada. Perfecto para <strong
+                                    class="text-bosque">vivir con comodidade</strong> e desfrutar da tranquilidade da
+                                Ribeira Sacra.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4 mt-6">
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-bed text-bosque"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.piso2.feat1">2
+                                    Dormitorios</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-bath text-bosque"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.piso2.feat2">2 Baños</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-couch text-bosque"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.piso2.feat3">Salón amplo</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-wifi text-bosque"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.piso2.feat4">WiFi
+                                    incluído</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Galería de imágenes Piso 2 -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/piso2/dormitorio.png" alt="Dormitorio do Piso 2"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="piso2">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/piso2/cocina.png" alt="Cociña do Piso 2"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="piso2">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/piso2/baño1.png" alt="Baño 1 do Piso 2"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="piso2">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/piso2/baño2.png" alt="Baño 2 do Piso 2"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="piso2">
+                    </div>
+                    <div
+                        class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer col-span-2 md:col-span-1">
+                        <img src="imagenes/piso2/salon.png" alt="Salón do Piso 2 - Detalle"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="piso2">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Separador decorativo -->
+            <div class="flex items-center justify-center my-16">
+                <div class="w-24 h-1 bg-bosque/30"></div>
+                <i class="fas fa-tree text-bosque/50 text-2xl mx-6"></i>
+                <div class="w-24 h-1 bg-bosque/30"></div>
+            </div>
+
+            <!-- Zonas Exteriores Comunes -->
+            <div class="mb-16">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                    <!-- Imagen principal Exteriores -->
+                    <div class="relative">
+                        <img src="imagenes/exteriores/terraza1.png" alt="Terraza con vistas"
+                            class="gallery-img rounded-2xl shadow-2xl w-full h-[400px] object-cover cursor-pointer"
+                            data-gallery="exteriores">
+                        <div
+                            class="absolute -bottom-4 -right-4 bg-tierra text-crema px-4 py-2 rounded-xl shadow-lg hidden md:block">
+                            <span class="font-semibold" data-i18n="apartments.exterior.badge">Uso común</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-tierra rounded-full flex items-center justify-center">
+                                <i class="fas fa-leaf text-crema text-xl"></i>
+                            </div>
+                            <h4 class="font-serif text-2xl md:text-3xl font-bold text-pizarra"
+                                data-i18n="apartments.exterior.title">
+                                Zonas Exteriores Comúns
+                            </h4>
+                        </div>
+                        <div class="space-y-4 text-piedra/80 text-lg leading-relaxed">
+                            <p data-i18n="apartments.exterior.p1">
+                                <i class="fas fa-quote-left text-tierra/30 text-xl mr-2"></i>
+                                Os inquilinos poden desfrutar das <strong class="text-bosque">amplas zonas
+                                    exteriores</strong> de uso común: xardín, terraza e espazos ao aire libre. Un espazo
+                                perfecto para relaxarse e gozar do bo tempo.
+                            </p>
+                            <p data-i18n="apartments.exterior.p2">
+                                Ademais, hai <strong class="text-bosque">aparcamento na zona</strong> para deixar o
+                                coche con comodidade. Un plus que fai a vida máis fácil no día a día.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4 mt-6">
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-tree text-tierra"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.exterior.feat1">Xardín</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-umbrella-beach text-tierra"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.exterior.feat2">Terraza</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-mountain text-tierra"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.exterior.feat3">Vistas</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                <i class="fas fa-car text-tierra"></i>
+                                <span class="text-sm font-medium" data-i18n="apartments.exterior.feat4">Aparcamento na
+                                    zona</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Galería de exteriores -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/exteriores/jardin.png" alt="Xardín"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="exteriores">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/exteriores/terraza2.png" alt="Terraza - Vista 2"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="exteriores">
+                    </div>
+                    <div class="overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer">
+                        <img src="imagenes/exteriores/vistas.png" alt="Vistas"
+                            class="gallery-img w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                            data-gallery="exteriores">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Final -->
+            <div class="text-center mt-16">
+                <div class="bg-gradient-to-r from-mencia to-mencia-dark p-8 md:p-12 rounded-3xl shadow-2xl">
+                    <h4 class="font-serif text-2xl md:text-3xl font-bold text-crema mb-4"
+                        data-i18n="apartments.cta.title">
+                        Interésache algún dos nosos pisos?
+                    </h4>
+                    <p class="text-crema/80 mb-6 max-w-2xl mx-auto" data-i18n="apartments.cta.desc">
+                        Contacta connosco para consultar dispoñibilidade, condicións e prezos. Sen compromiso!
+                    </p>
+                    <a href="#contacto"
+                        class="inline-flex items-center gap-2 bg-crema hover:bg-white text-mencia px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:shadow-xl">
+                        <i class="fas fa-phone-alt"></i>
+                        <span data-i18n="apartments.cta.button">Contactar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section id="productos" class="py-20 md:py-32 bg-pizarra texture-stone">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-mencia font-semibold tracking-widest uppercase mb-4" data-i18n="products.label">As Nosas
+                    Estrelas</p>
+                <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-crema mb-4"
+                    data-i18n="products.title">
+                    Produtos Destacados
+                </h3>
+                <p class="text-crema/70 max-w-2xl mx-auto text-lg" data-i18n="products.subtitle">
+                    O mellor da Ribeira Sacra na túa mesa. Produtos seleccionados con agarimo e tradición.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Producto 1: Pan Artesanal -->
+                <div class="card-hover bg-crema rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Pan Artesanal de Chantada" class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-4 left-4 bg-mencia text-crema px-3 py-1 rounded-full text-sm font-semibold">
+                            <i class="fas fa-star mr-1"></i><span data-i18n="products.badge1">Por encargo</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-tierra text-sm mb-2">
+                            <i class="fas fa-bread-slice"></i>
+                            <span data-i18n="products.bread.origin">Panadería de Chantada</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-pizarra mb-2" data-i18n="products.bread.title">Pan
+                            Artesanal</h4>
+                        <p class="text-piedra/70 mb-4" data-i18n="products.bread.desc">
+                            Pan de aldea elaborado con receitas tradicionais nunha panadería local de Chantada.
+                            Encárgao e recólleo fresquiño.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-bosque font-semibold" data-i18n="products.bread.price">Por encargo</span>
+                            <a href="#contacto"
+                                class="text-mencia hover:text-mencia-dark transition-colors font-medium">
+                                <span data-i18n="products.bread.cta">Encargar</span> <i
+                                    class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Verduras de Temporada -->
+                <div class="card-hover bg-crema rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Verduras Frescas de Temporada" class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-4 left-4 bg-bosque text-crema px-3 py-1 rounded-full text-sm font-semibold">
+                            <i class="fas fa-leaf mr-1"></i><span data-i18n="products.badge2">De tempada</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-tierra text-sm mb-2">
+                            <i class="fas fa-seedling"></i>
+                            <span data-i18n="products.veggies.origin">Hortas locais</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-pizarra mb-2" data-i18n="products.veggies.title">
+                            Verduras Frescas</h4>
+                        <p class="text-piedra/70 mb-4" data-i18n="products.veggies.desc">
+                            Verduras de tempada cultivadas nas hortas da zona.
+                            Produtos frescos e de proximidade, do campo á túa mesa.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-bosque font-semibold" data-i18n="products.veggies.price">Prezos
+                                variados</span>
+                            <a href="#contacto"
+                                class="text-mencia hover:text-mencia-dark transition-colors font-medium">
+                                <span data-i18n="products.veggies.cta">Consultar</span> <i
+                                    class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Quesos Gallegos -->
+                <div class="card-hover bg-crema rounded-2xl overflow-hidden shadow-lg">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Queixos Galegos Artesanais" class="w-full h-full object-cover">
+                        <div
+                            class="absolute top-4 left-4 bg-roble text-crema px-3 py-1 rounded-full text-sm font-semibold">
+                            <i class="fas fa-cheese mr-1"></i><span data-i18n="products.badge3">Artesanal</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-tierra text-sm mb-2">
+                            <i class="fas fa-cow"></i>
+                            <span data-i18n="products.cheese.origin">Leite de pastoreo</span>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-pizarra mb-2" data-i18n="products.cheese.title">
+                            Queixos Galegos</h4>
+                        <p class="text-piedra/70 mb-4" data-i18n="products.cheese.desc">
+                            Selección de queixos artesanais galegos. Cremosos e suaves,
+                            o acompañamento perfecto para o pan ou o marmelo.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-bosque font-semibold" data-i18n="products.cheese.price">Dende
+                                12€/kg</span>
+                            <a href="#contacto"
+                                class="text-mencia hover:text-mencia-dark transition-colors font-medium">
+                                <span data-i18n="products.cheese.cta">Comprar</span> <i
+                                    class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial / Frase -->
+    <section class="py-20 bg-bosque texture-stone">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fas fa-quote-left text-mencia/40 text-6xl mb-8"></i>
+            <blockquote
+                class="font-serif text-2xl md:text-3xl lg:text-4xl text-crema max-w-4xl mx-auto leading-relaxed mb-8"
+                data-i18n="testimonial.quote">
+                "En Chantada non hai présa. Aquí o tempo mídese en cafés,
+                en charlas cos veciños e en copas de Mencía ao solpor."
+            </blockquote>
+            <div class="flex items-center justify-center gap-4">
+                <div class="w-16 h-1 bg-mencia"></div>
+                <span class="text-crema/60 font-medium">Casa Amelia</span>
+                <div class="w-16 h-1 bg-mencia"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto y Ubicación -->
+    <section id="contacto" class="py-20 md:py-32 bg-crema">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-mencia font-semibold tracking-widest uppercase mb-4" data-i18n="contact.label">Atópanos
+                </p>
+                <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-pizarra"
+                    data-i18n="contact.title">
+                    Ven Vernos
+                </h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Mapa -->
+                <div class="rounded-2xl overflow-hidden shadow-xl h-[400px] md:h-full">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Bo.+Basán+Pequeño,+25,+27500+Chantada,+Lugo,+España&t=&z=12&ie=UTF8&iwloc=&output=embed"
+                        width="100%" height="100%" style="border:0; min-height: 400px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Ubicación de Casa Amelia - Bo. Basán Pequeño, 25, 27500 Chantada, Lugo">
+                    </iframe>
+                </div>
+
+                <!-- Info de Contacto -->
+                <div class="space-y-8">
+                    <!-- Dirección -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg flex items-start gap-5">
+                        <div class="w-14 h-14 bg-mencia/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-mencia text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pizarra mb-2"
+                                data-i18n="contact.address.title">Enderezo</h4>
+                            <p class="text-piedra/80">
+                                Bo. Basán Pequeño, 25<br>
+                                27500 Chantada, Lugo<br>
+                                Galicia, España
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg flex items-start gap-5">
+                        <div class="w-14 h-14 bg-bosque/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone-alt text-bosque text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pizarra mb-2" data-i18n="contact.phone.title">
+                                Teléfono</h4>
+                            <a href="tel:+34982440000"
+                                class="text-piedra/80 hover:text-mencia transition-colors text-lg">
+                                +34 982 44 00 00
+                            </a>
+                            <p class="text-sm text-piedra/60 mt-1" data-i18n="contact.phone.whatsapp">Tamén por WhatsApp
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Horario -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg flex items-start gap-5">
+                        <div class="w-14 h-14 bg-roble/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clock text-roble text-2xl"></i>
+                        </div>
+                        <div class="w-full">
+                            <h4 class="font-serif text-xl font-bold text-pizarra mb-3" data-i18n="contact.hours.title">
+                                Horario</h4>
+                            <div class="space-y-2 text-piedra/80">
+                                <div class="flex justify-between">
+                                    <span data-i18n="contact.hours.weekdays">Luns - Venres</span>
+                                    <span class="font-medium">9:00 - 23:00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span data-i18n="contact.hours.weekends">Fins de semana e festivos</span>
+                                    <span class="font-medium">10:00 - 23:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info Pisos -->
+                    <div
+                        class="bg-gradient-to-r from-bosque to-bosque/90 p-6 rounded-2xl shadow-lg flex items-start gap-5">
+                        <div class="w-14 h-14 bg-crema/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-home text-crema text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-crema mb-2"
+                                data-i18n="contact.apartments.title">Pisos en Alugueiro</h4>
+                            <p class="text-crema/80" data-i18n="contact.apartments.desc">
+                                Pisos recén reformados dispoñibles. <br>
+                                <span class="font-medium">Pregunta sen compromiso!</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox"
+        class="fixed inset-0 z-[100] hidden bg-pizarra/80 backdrop-blur-xl flex items-center justify-center">
+        <!-- Close button -->
+        <button id="lightbox-close"
+            class="absolute top-4 right-4 text-white text-3xl hover:text-mencia transition-colors z-10">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <!-- Previous button -->
+        <button id="lightbox-prev"
+            class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-mencia transition-colors z-10 bg-black/30 rounded-full w-12 h-12 flex items-center justify-center">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- Image container -->
+        <div class="max-w-[90vw] max-h-[85vh] flex items-center justify-center">
+            <img id="lightbox-img" src="" alt=""
+                class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl transition-all duration-300 ease-in-out">
+        </div>
+
+        <!-- Next button -->
+        <button id="lightbox-next"
+            class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-mencia transition-colors z-10 bg-black/30 rounded-full w-12 h-12 flex items-center justify-center">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Image counter -->
+        <div id="lightbox-counter"
+            class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
+            <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
+        </div>
+
+        <!-- Image caption -->
+        <div id="lightbox-caption"
+            class="absolute bottom-16 left-1/2 -translate-x-1/2 text-white text-center max-w-lg px-4">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-pizarra py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Logo Footer -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-mencia rounded-full flex items-center justify-center">
+                        <i class="fas fa-wine-glass-alt text-crema"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-serif font-bold text-crema">Casa Amelia</h5>
+                        <p class="text-crema/60 text-xs">Bar, Ultramarinos & Alquiler de Pisos</p>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <p class="text-crema/60 text-sm text-center">
+                    © 2025 Casa Amelia. Hecho con <i class="fas fa-heart text-mencia"></i> en Chantada.
+                </p>
+
+                <!-- Back to top -->
+                <a href="#inicio" class="text-crema/60 hover:text-crema transition-colors flex items-center gap-2">
+                    <span class="text-sm">Volver arriba</span>
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Translations
+        const translations = {
+            gl: {
+                'nav.inicio': 'Inicio',
+                'nav.nosotros': 'Sobre nós',
+                'nav.servicios': 'Servizos',
+                'nav.pisos': 'Pisos',
+                'nav.productos': 'Produtos',
+                'nav.contactar': 'Contactar',
+                'hero.location': 'Chantada, Ribeira Sacra',
+                'hero.title': 'Sabor a tradición no <span class="text-mencia">corazón</span> de Galicia',
+                'hero.subtitle': 'Onde o aroma do café recén feito se mestura co do pan de aldea. Bar e ultramarinos de toda a vida, coa alma da Ribeira Sacra.',
+                'hero.cta1': 'Ven visitarnos',
+                'hero.cta2': 'Descubre máis',
+                'products.label': 'As Nosas Estrelas',
+                'products.title': 'Produtos Destacados',
+                'products.subtitle': 'O mellor da Ribeira Sacra na túa mesa. Produtos seleccionados con agarimo e tradición.',
+                'products.badge1': 'Por encargo',
+                'products.badge2': 'De tempada',
+                'products.badge3': 'Artesanal',
+                'products.bread.origin': 'Panadería de Chantada',
+                'products.bread.title': 'Pan Artesanal',
+                'products.bread.desc': 'Pan de aldea elaborado con receitas tradicionais nunha panadería local de Chantada. Encárgao e recólleo fresquiño.',
+                'products.bread.price': 'Por encargo',
+                'products.bread.cta': 'Encargar',
+                'products.veggies.origin': 'Hortas locais',
+                'products.veggies.title': 'Verduras Frescas',
+                'products.veggies.desc': 'Verduras de tempada cultivadas nas hortas da zona. Produtos frescos e de proximidade, do campo á túa mesa.',
+                'products.veggies.price': 'Prezos variados',
+                'products.veggies.cta': 'Consultar',
+                'products.cheese.origin': 'Leite de pastoreo',
+                'products.cheese.title': 'Queixos Galegos',
+                'products.cheese.desc': 'Selección de queixos artesanais galegos. Cremosos e suaves, o acompañamento perfecto para o pan ou o marmelo.',
+                'products.cheese.price': 'Dende 12€/kg',
+                'products.cheese.cta': 'Comprar',
+                'contact.hours.title': 'Horario',
+                'contact.hours.weekdays': 'Luns - Venres',
+                'contact.hours.weekends': 'Fins de semana e festivos',
+                // About section
+                'about.years': 'anos de historia',
+                'about.label': 'A Nosa Historia',
+                'about.title': 'Máis que un negocio, un lugar de encontro',
+                'about.p1': '<i class="fas fa-quote-left text-mencia/30 text-2xl mr-2"></i>En Casa Amelia levamos décadas sendo o punto de encontro de Chantada. Aquí tómase o café da mañá, bótase a partida despois de xantar, e lévase a casa o pan quentiño para a cea.',
+                'about.p2': 'Somos <strong class="text-bosque">bar e tenda á vez</strong>, como os negocios de antes. Onde podes tomar un viño Mencía da terra mentres fas a compra, ou levar unhas conservas artesás despois do vermú do domingo.',
+                'about.p3': 'Unha tradición familiar que pasa de xeración en xeración, mantendo sempre a esencia: <strong class="text-bosque">produto local, trato próximo e calidade de verdade</strong>.',
+                'about.feat1': 'Produto Local',
+                'about.feat2': 'Trato Familiar',
+                'about.feat3': 'Calidade Artesá',
+                // Services section
+                'services.label': 'O Mellor de Dous Mundos',
+                'services.title': 'Bar & Ultramarinos',
+                'services.bar.title': 'O Bar',
+                'services.bar.item1': 'Viños D.O. Ribeira Sacra',
+                'services.bar.item2': 'Tapas caseiras da avoa',
+                'services.bar.item3': 'Café de torrado natural',
+                'services.bar.item4': 'Licores galegos artesáns',
+                'services.bar.item5': 'Vermú de grifo os domingos',
+                'services.store.title': 'A Tenda',
+                'services.store.item1': 'Pan de aldea recén feito',
+                'services.store.item2': 'Embutidos da zona',
+                'services.store.item3': 'Queixos galegos artesáns',
+                'services.store.item4': 'Conservas do mar',
+                'services.store.item5': 'Mel e produtos da terra',
+                // Apartments section
+                'apartments.label': 'Pisos en Alugueiro',
+                'apartments.title': 'O Teu Novo Fogar <span class="text-mencia">na Ribeira Sacra</span>',
+                'apartments.intro': 'Pisos recén reformados, listos para entrar a vivir. Dispoñemos de dúas vivendas con todo o confort moderno, zonas exteriores comúns e unha ubicación inmelorable no corazón de Chantada.',
+                // Piso 1
+                'apartments.piso1.title': 'Piso 1',
+                'apartments.piso1.p1': '<i class="fas fa-quote-left text-mencia/30 text-xl mr-2"></i>Acolledor piso de <strong class="text-bosque">1 dormitorio</strong> perfecto para unha persoa ou parella. Recén reformado con acabados de calidade, combina a calidez do estilo tradicional galego coas comodidades modernas que precisas no teu día a día.',
+                'apartments.piso1.p2': 'Amplo salón con moita luz natural, cociña totalmente equipada e baño completo. Ideal para quen busca <strong class="text-bosque">tranquilidade e calidade de vida</strong> nun entorno privilexiado.',
+                'apartments.piso1.feat1': '1 Dormitorio',
+                'apartments.piso1.feat2': '1 Baño completo',
+                'apartments.piso1.feat3': 'Cociña equipada',
+                'apartments.piso1.feat4': 'WiFi incluído',
+                'apartments.piso1.badge': 'Dispoñible',
+                // Piso 2
+                'apartments.piso2.title': 'Piso 2',
+                'apartments.piso2.p1': '<i class="fas fa-quote-left text-bosque/30 text-xl mr-2"></i>Espazo luminoso e acolledor de <strong class="text-bosque">2 dormitorios</strong>, ideal para familias ou para quen precise máis espazo. Completamente renovado con materiais de primeira calidade e un deseño funcional.',
+                'apartments.piso2.p2': 'Conta con dous baños, salón amplo e cociña equipada. Perfecto para <strong class="text-bosque">vivir con comodidade</strong> e desfrutar da tranquilidade da Ribeira Sacra.',
+                'apartments.piso2.feat1': '2 Dormitorios',
+                'apartments.piso2.feat2': '2 Baños',
+                'apartments.piso2.feat3': 'Salón amplo',
+                'apartments.piso2.feat4': 'WiFi incluído',
+                'apartments.piso2.badge': 'Recén renovado',
+                // Exteriores
+                'apartments.exterior.title': 'Zonas Exteriores Comúns',
+                'apartments.exterior.p1': '<i class="fas fa-quote-left text-tierra/30 text-xl mr-2"></i>Os inquilinos poden desfrutar das <strong class="text-bosque">amplas zonas exteriores</strong> de uso común: xardín, terraza e espazos ao aire libre. Un espazo perfecto para relaxarse e gozar do bo tempo.',
+                'apartments.exterior.p2': 'Ademais, hai <strong class="text-bosque">aparcamento na zona</strong> para deixar o coche con comodidade. Un plus que fai a vida máis fácil no día a día.',
+                'apartments.exterior.feat1': 'Xardín',
+                'apartments.exterior.feat2': 'Terraza',
+                'apartments.exterior.feat3': 'Vistas',
+                'apartments.exterior.feat4': 'Aparcamento na zona',
+                'apartments.exterior.badge': 'Uso común',
+                // CTA
+                'apartments.cta.title': 'Interésache algún dos nosos pisos?',
+                'apartments.cta.desc': 'Contacta connosco para consultar dispoñibilidade, condicións e prezos. Sen compromiso!',
+                'apartments.cta.button': 'Contactar',
+                // Testimonial section
+                'testimonial.quote': '"En Chantada non hai présa. Aquí o tempo mídese en cafés, en charlas cos veciños e en copas de Mencía ao solpor."',
+                // Contact section
+                'contact.label': 'Atópanos',
+                'contact.title': 'Ven Vernos',
+                'contact.address.title': 'Enderezo',
+                'contact.phone.title': 'Teléfono',
+                'contact.phone.whatsapp': 'Tamén por WhatsApp',
+                'contact.apartments.title': 'Pisos en Alugueiro',
+                'contact.apartments.desc': 'Pisos recén reformados dispoñibles. <br><span class="font-medium">Pregunta sen compromiso!</span>'
+            },
+            es: {
+                'nav.inicio': 'Inicio',
+                'nav.nosotros': 'Nosotros',
+                'nav.servicios': 'Servicios',
+                'nav.pisos': 'Pisos',
+                'nav.productos': 'Productos',
+                'nav.contactar': 'Contactar',
+                'hero.location': 'Chantada, Ribeira Sacra',
+                'hero.title': 'Sabor a tradición en el <span class="text-mencia">corazón</span> de Galicia',
+                'hero.subtitle': 'Donde el aroma del café recién hecho se mezcla con el del pan de pueblo. Bar y ultramarinos de toda la vida, con el alma de la Ribeira Sacra.',
+                'hero.cta1': 'Ven a visitarnos',
+                'hero.cta2': 'Descubre más',
+                'products.label': 'Nuestras Estrellas',
+                'products.title': 'Productos Destacados',
+                'products.subtitle': 'Lo mejor de la Ribeira Sacra en tu mesa. Productos seleccionados con mimo y tradición.',
+                'products.badge1': 'Por encargo',
+                'products.badge2': 'De temporada',
+                'products.badge3': 'Artesano',
+                'products.bread.origin': 'Panadería de Chantada',
+                'products.bread.title': 'Pan Artesanal',
+                'products.bread.desc': 'Pan de pueblo elaborado con recetas tradicionales en una panadería local de Chantada. Encárgalo y recógelo fresquito.',
+                'products.bread.price': 'Por encargo',
+                'products.bread.cta': 'Encargar',
+                'products.veggies.origin': 'Huertas locales',
+                'products.veggies.title': 'Verduras Frescas',
+                'products.veggies.desc': 'Verduras de temporada cultivadas en las huertas de la zona. Productos frescos y de proximidad, del campo a tu mesa.',
+                'products.veggies.price': 'Precios variados',
+                'products.veggies.cta': 'Consultar',
+                'products.cheese.origin': 'Leche de pastoreo',
+                'products.cheese.title': 'Quesos Gallegos',
+                'products.cheese.desc': 'Selección de quesos artesanos gallegos. Cremosos y suaves, el acompañamiento perfecto para el pan o el membrillo.',
+                'products.cheese.price': 'Desde 12€/kg',
+                'products.cheese.cta': 'Comprar',
+                'contact.hours.title': 'Horario',
+                'contact.hours.weekdays': 'Lunes - Viernes',
+                'contact.hours.weekends': 'Fines de semana y festivos',
+                // About section
+                'about.years': 'años de historia',
+                'about.label': 'Nuestra Historia',
+                'about.title': 'Más que un negocio, un lugar de encuentro',
+                'about.p1': '<i class="fas fa-quote-left text-mencia/30 text-2xl mr-2"></i>En Casa Amelia llevamos décadas siendo el punto de encuentro de Chantada. Aquí se toma el café de la mañana, se echa la partida después de comer, y se lleva a casa el pan calentito para la cena.',
+                'about.p2': 'Somos <strong class="text-bosque">bar y tienda a la vez</strong>, como los negocios de antes. Donde puedes tomarte un vino Mencía de la tierra mientras haces la compra, o llevarte unas conservas artesanas después del vermú del domingo.',
+                'about.p3': 'Una tradición familiar que pasa de generación en generación, manteniendo siempre la esencia: <strong class="text-bosque">producto local, trato cercano y calidad de verdad</strong>.',
+                'about.feat1': 'Producto Local',
+                'about.feat2': 'Trato Familiar',
+                'about.feat3': 'Calidad Artesana',
+                // Services section
+                'services.label': 'Lo Mejor de Dos Mundos',
+                'services.title': 'Bar & Ultramarinos',
+                'services.bar.title': 'El Bar',
+                'services.bar.item1': 'Vinos D.O. Ribeira Sacra',
+                'services.bar.item2': 'Tapas caseras de la abuela',
+                'services.bar.item3': 'Café de tueste natural',
+                'services.bar.item4': 'Licores gallegos artesanos',
+                'services.bar.item5': 'Vermú de grifo los domingos',
+                'services.store.title': 'La Tienda',
+                'services.store.item1': 'Pan de pueblo recién horneado',
+                'services.store.item2': 'Embutidos de la zona',
+                'services.store.item3': 'Quesos gallegos artesanos',
+                'services.store.item4': 'Conservas del mar',
+                'services.store.item5': 'Miel y productos de la tierra',
+                // Apartments section
+                'apartments.label': 'Pisos en Alquiler',
+                'apartments.title': 'Tu Nuevo Hogar <span class="text-mencia">en la Ribeira Sacra</span>',
+                'apartments.intro': 'Pisos recién reformados, listos para entrar a vivir. Disponemos de dos viviendas con todo el confort moderno, zonas exteriores comunes y una ubicación inmejorable en el corazón de Chantada.',
+                // Piso 1
+                'apartments.piso1.title': 'Piso 1',
+                'apartments.piso1.p1': '<i class="fas fa-quote-left text-mencia/30 text-xl mr-2"></i>Acogedor piso de <strong class="text-bosque">1 dormitorio</strong> perfecto para una persona o pareja. Recién reformado con acabados de calidad, combina la calidez del estilo tradicional gallego con las comodidades modernas que necesitas en tu día a día.',
+                'apartments.piso1.p2': 'Amplio salón con mucha luz natural, cocina totalmente equipada y baño completo. Ideal para quien busca <strong class="text-bosque">tranquilidad y calidad de vida</strong> en un entorno privilegiado.',
+                'apartments.piso1.feat1': '1 Dormitorio',
+                'apartments.piso1.feat2': '1 Baño completo',
+                'apartments.piso1.feat3': 'Cocina equipada',
+                'apartments.piso1.feat4': 'WiFi incluido',
+                'apartments.piso1.badge': 'Disponible',
+                // Piso 2
+                'apartments.piso2.title': 'Piso 2',
+                'apartments.piso2.p1': '<i class="fas fa-quote-left text-bosque/30 text-xl mr-2"></i>Espacio luminoso y acogedor de <strong class="text-bosque">2 dormitorios</strong>, ideal para familias o para quien necesite más espacio. Completamente renovado con materiales de primera calidad y un diseño funcional.',
+                'apartments.piso2.p2': 'Cuenta con dos baños, salón amplio y cocina equipada. Perfecto para <strong class="text-bosque">vivir con comodidad</strong> y disfrutar de la tranquilidad de la Ribeira Sacra.',
+                'apartments.piso2.feat1': '2 Dormitorios',
+                'apartments.piso2.feat2': '2 Baños',
+                'apartments.piso2.feat3': 'Salón amplio',
+                'apartments.piso2.feat4': 'WiFi incluido',
+                'apartments.piso2.badge': 'Recién renovado',
+                // Exteriores
+                'apartments.exterior.title': 'Zonas Exteriores Comunes',
+                'apartments.exterior.p1': '<i class="fas fa-quote-left text-tierra/30 text-xl mr-2"></i>Los inquilinos pueden disfrutar de las <strong class="text-bosque">amplias zonas exteriores</strong> de uso común: jardín, terraza y espacios al aire libre. Un espacio perfecto para relajarse y disfrutar del buen tiempo.',
+                'apartments.exterior.p2': 'Además, hay <strong class="text-bosque">aparcamiento en la zona</strong> para dejar el coche con comodidad. Un plus que hace la vida más fácil en el día a día.',
+                'apartments.exterior.feat1': 'Jardín',
+                'apartments.exterior.feat2': 'Terraza',
+                'apartments.exterior.feat3': 'Vistas',
+                'apartments.exterior.feat4': 'Aparcamiento en la zona',
+                'apartments.exterior.badge': 'Uso común',
+                // CTA
+                'apartments.cta.title': '¿Te interesa alguno de nuestros pisos?',
+                'apartments.cta.desc': 'Contacta con nosotros para consultar disponibilidad, condiciones y precios. ¡Sin compromiso!',
+                'apartments.cta.button': 'Contactar',
+                // Testimonial section
+                'testimonial.quote': '"En Chantada no hay prisa. Aquí el tiempo se mide en cafés, en charlas con los vecinos y en copas de Mencía al atardecer."',
+                // Contact section
+                'contact.label': 'Encuéntranos',
+                'contact.title': 'Ven a Vernos',
+                'contact.address.title': 'Dirección',
+                'contact.phone.title': 'Teléfono',
+                'contact.phone.whatsapp': 'También por WhatsApp',
+                'contact.apartments.title': 'Pisos en Alquiler',
+                'contact.apartments.desc': 'Pisos recién reformados disponibles. <br><span class="font-medium">¡Pregunta sin compromiso!</span>'
+            },
+            en: {
+                'nav.inicio': 'Home',
+                'nav.nosotros': 'About Us',
+                'nav.servicios': 'Services',
+                'nav.pisos': 'Apartments',
+                'nav.productos': 'Products',
+                'nav.contactar': 'Contact',
+                'hero.location': 'Chantada, Ribeira Sacra',
+                'hero.title': 'Taste of tradition in the <span class="text-mencia">heart</span> of Galicia',
+                'hero.subtitle': 'Where the aroma of freshly brewed coffee blends with that of village bread. A traditional bar and grocery store, with the soul of Ribeira Sacra.',
+                'hero.cta1': 'Visit Us',
+                'hero.cta2': 'Discover More',
+                'products.label': 'Our Stars',
+                'products.title': 'Featured Products',
+                'products.subtitle': 'The best of Ribeira Sacra on your table. Products selected with care and tradition.',
+                'products.badge1': 'On request',
+                'products.badge2': 'Seasonal',
+                'products.badge3': 'Artisan',
+                'products.bread.origin': 'Chantada Bakery',
+                'products.bread.title': 'Artisan Bread',
+                'products.bread.desc': 'Village bread made with traditional recipes at a local Chantada bakery. Order it and pick it up fresh.',
+                'products.bread.price': 'On request',
+                'products.bread.cta': 'Order',
+                'products.veggies.origin': 'Local gardens',
+                'products.veggies.title': 'Fresh Vegetables',
+                'products.veggies.desc': 'Seasonal vegetables grown in local gardens. Fresh, local produce, from the field to your table.',
+                'products.veggies.price': 'Various prices',
+                'products.veggies.cta': 'Inquire',
+                'products.cheese.origin': 'Pasture-raised milk',
+                'products.cheese.title': 'Galician Cheeses',
+                'products.cheese.desc': 'Selection of artisan Galician cheeses. Creamy and smooth, the perfect companion for bread or quince.',
+                'products.cheese.price': 'From €12/kg',
+                'products.cheese.cta': 'Buy',
+                'contact.hours.title': 'Hours',
+                'contact.hours.weekdays': 'Monday - Friday',
+                'contact.hours.weekends': 'Weekends & Holidays',
+                // About section
+                'about.years': 'years of history',
+                'about.label': 'Our History',
+                'about.title': 'More than a business, a meeting place',
+                'about.p1': '<i class="fas fa-quote-left text-mencia/30 text-2xl mr-2"></i>At Casa Amelia we have been the meeting point of Chantada for decades. Here you have your morning coffee, play cards after lunch, and take home warm bread for dinner.',
+                'about.p2': 'We are <strong class="text-bosque">bar and store at the same time</strong>, like the old businesses. Where you can enjoy a Mencía wine from the region while doing your shopping, or take some artisan preserves after Sunday vermouth.',
+                'about.p3': 'A family tradition that passes from generation to generation, always keeping the essence: <strong class="text-bosque">local product, close treatment and real quality</strong>.',
+                'about.feat1': 'Local Product',
+                'about.feat2': 'Family Treatment',
+                'about.feat3': 'Artisan Quality',
+                // Services section
+                'services.label': 'The Best of Both Worlds',
+                'services.title': 'Bar & Grocery Store',
+                'services.bar.title': 'The Bar',
+                'services.bar.item1': 'D.O. Ribeira Sacra Wines',
+                'services.bar.item2': 'Grandmother\'s homemade tapas',
+                'services.bar.item3': 'Natural roasted coffee',
+                'services.bar.item4': 'Artisan Galician liqueurs',
+                'services.bar.item5': 'Sunday vermouth on tap',
+                'services.store.title': 'The Store',
+                'services.store.item1': 'Fresh village bread',
+                'services.store.item2': 'Local cured meats',
+                'services.store.item3': 'Artisan Galician cheeses',
+                'services.store.item4': 'Sea preserves',
+                'services.store.item5': 'Honey and local products',
+                // Apartments section
+                'apartments.label': 'Apartments for Rent',
+                'apartments.title': 'Your New Home <span class="text-mencia">in Ribeira Sacra</span>',
+                'apartments.intro': 'Newly renovated apartments, ready to move in. We have two homes with all modern comforts, common outdoor areas and an unbeatable location in the heart of Chantada.',
+                // Piso 1
+                'apartments.piso1.title': 'Apartment 1',
+                'apartments.piso1.p1': '<i class="fas fa-quote-left text-mencia/30 text-xl mr-2"></i>Cozy <strong class="text-bosque">1-bedroom</strong> apartment perfect for one person or a couple. Recently renovated with quality finishes, it combines the warmth of traditional Galician style with the modern comforts you need in your daily life.',
+                'apartments.piso1.p2': 'Spacious living room with lots of natural light, fully equipped kitchen and complete bathroom. Ideal for those seeking <strong class="text-bosque">tranquility and quality of life</strong> in a privileged environment.',
+                'apartments.piso1.feat1': '1 Bedroom',
+                'apartments.piso1.feat2': '1 Full bathroom',
+                'apartments.piso1.feat3': 'Equipped kitchen',
+                'apartments.piso1.feat4': 'WiFi included',
+                'apartments.piso1.badge': 'Available',
+                // Piso 2
+                'apartments.piso2.title': 'Apartment 2',
+                'apartments.piso2.p1': '<i class="fas fa-quote-left text-bosque/30 text-xl mr-2"></i>Bright and cozy <strong class="text-bosque">2-bedroom</strong> space, ideal for families or those who need more room. Completely renovated with top-quality materials and functional design.',
+                'apartments.piso2.p2': 'Features two bathrooms, spacious living room and equipped kitchen. Perfect for <strong class="text-bosque">comfortable living</strong> and enjoying the tranquility of Ribeira Sacra.',
+                'apartments.piso2.feat1': '2 Bedrooms',
+                'apartments.piso2.feat2': '2 Bathrooms',
+                'apartments.piso2.feat3': 'Spacious living room',
+                'apartments.piso2.feat4': 'WiFi included',
+                'apartments.piso2.badge': 'Newly renovated',
+                // Exteriores
+                'apartments.exterior.title': 'Common Outdoor Areas',
+                'apartments.exterior.p1': '<i class="fas fa-quote-left text-tierra/30 text-xl mr-2"></i>Tenants can enjoy the <strong class="text-bosque">spacious outdoor areas</strong> for common use: garden, terrace and open-air spaces. A perfect space to relax and enjoy good weather.',
+                'apartments.exterior.p2': 'Plus, there is <strong class="text-bosque">parking nearby</strong> to leave your car comfortably. A plus that makes daily life easier.',
+                'apartments.exterior.feat1': 'Garden',
+                'apartments.exterior.feat2': 'Terrace',
+                'apartments.exterior.feat3': 'Views',
+                'apartments.exterior.feat4': 'Nearby parking',
+                'apartments.exterior.badge': 'Common use',
+                // CTA
+                'apartments.cta.title': 'Interested in one of our apartments?',
+                'apartments.cta.desc': 'Contact us to check availability, conditions and prices. No commitment!',
+                'apartments.cta.button': 'Contact',
+                // Testimonial section
+                'testimonial.quote': '"In Chantada there is no rush. Here time is measured in coffees, in chats with neighbors and in glasses of Mencía at sunset."',
+                // Contact section
+                'contact.label': 'Find Us',
+                'contact.title': 'Come Visit Us',
+                'contact.address.title': 'Address',
+                'contact.phone.title': 'Phone',
+                'contact.phone.whatsapp': 'Also on WhatsApp',
+                'contact.apartments.title': 'Apartments for Rent',
+                'contact.apartments.desc': 'Newly renovated apartments available. <br><span class="font-medium">Ask without commitment!</span>'
+            }
+        };
+
+        // Set language function
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'gl';
+            setLanguage(savedLang);
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                    const icon = menuBtn.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Lightbox Gallery
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const lightboxCurrent = document.getElementById('lightbox-current');
+        const lightboxTotal = document.getElementById('lightbox-total');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        // Open lightbox when clicking on gallery images
+        document.querySelectorAll('.gallery-img').forEach(img => {
+            img.addEventListener('click', function () {
+                const galleryName = this.getAttribute('data-gallery');
+                currentGallery = Array.from(document.querySelectorAll(`[data-gallery="${galleryName}"]`));
+                currentIndex = currentGallery.indexOf(this);
+                openLightbox();
+            });
+        });
+
+        function openLightbox() {
+            updateLightboxImage(false);
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightboxImage(animate = true) {
+            const img = currentGallery[currentIndex];
+
+            if (animate) {
+                // Fade out
+                lightboxImg.style.opacity = '0';
+                lightboxImg.style.transform = 'scale(0.95)';
+
+                setTimeout(() => {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightboxCurrent.textContent = currentIndex + 1;
+                    lightboxTotal.textContent = currentGallery.length;
+                    lightboxCaption.textContent = img.alt;
+
+                    // Fade in
+                    lightboxImg.style.opacity = '1';
+                    lightboxImg.style.transform = 'scale(1)';
+                }, 150);
+            } else {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxCurrent.textContent = currentIndex + 1;
+                lightboxTotal.textContent = currentGallery.length;
+                lightboxCaption.textContent = img.alt;
+                lightboxImg.style.opacity = '1';
+                lightboxImg.style.transform = 'scale(1)';
+            }
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateLightboxImage();
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateLightboxImage();
+        }
+
+        // Event listeners
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrev);
+        lightboxNext.addEventListener('click', showNext);
+
+        // Close on background click
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (lightbox.classList.contains('hidden')) return;
+
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
+        });
+
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        lightbox.addEventListener('touchstart', function (e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        lightbox.addEventListener('touchend', function (e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    showNext();
+                } else {
+                    showPrev();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
